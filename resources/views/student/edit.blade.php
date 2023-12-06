@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Editar')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Actualizacion de los datos del alumno</h1>
 @stop
 
 @section('content')
@@ -11,10 +11,13 @@
         <div class="row">
             <div class="col-md-12">
 
+                <!-- Inclusión de errores parciales -->
                 @includeif('partials.errors')
 
+                <!-- Formulario para actualizar un alumno -->
                 <div class="card card-default">
                     <div class="card-header">
+                        <!-- Título del formulario de actualización -->
                         <span class="card-title">{{ __('Update') }} Alumno</span>
                     </div>
                     <div class="card-body">
@@ -22,6 +25,7 @@
                             @csrf
                             @method('PUT')
 
+                            <!-- Campos del formulario prellenados con los datos del alumno -->
                             <div class="col-xs-10 col-md-10 col-lg-4 mb-3">
                                 <label for="nombre" class="form-label">Nombre</label>
                                 <input class="form-control" placeholder="Nombre" type="text" id="nombre" name="student_name" value="{{$student->student_name}}">
@@ -152,6 +156,7 @@
                                 <input class="form-control" placeholder="Password" type="password" id="npassword" name=password value="{{$student->password}}">
                             </div>
                             
+                            <!-- Botón para enviar el formulario -->
                             <div class="text-center mt-4 ml-2">
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                             </div>
@@ -165,9 +170,11 @@
 @stop
 
 @section('css')
+    <!-- Estilos CSS personalizados -->
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
 @section('js')
+    <!-- Script JavaScript para depuración -->
     <script> console.log('Hi!'); </script>
 @stop

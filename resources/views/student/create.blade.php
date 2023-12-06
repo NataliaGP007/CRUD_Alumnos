@@ -3,16 +3,20 @@
 @section('title', 'Formulario')
 
 @section('content_header')
+    <!-- Encabezado del contenido -->
     <h1 class="¨text-center">Registro de alumno</h1>
 @stop
 
 @section('content')
+<!-- Inclusión de iconos Bootstrap -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <p class="text mb-4">Rellena el formulario con los datos solicitados</p>
 
+    <!-- Formulario para registrar un nuevo alumno -->
     <form class="row" action="{{ route('students.store') }} " method="POST" >
         @csrf
 
+        <!-- Campos del formulario para los datos del estudiante -->
         <div class="col-xs-10 col-md-10 col-lg-4 mb-3">
             <label for="nombre" class="form-label">Nombre</label>
             <input class="form-control" placeholder="Nombre" type="text" id="nombre" name="student_name">
@@ -141,6 +145,7 @@
             <input class="form-control" placeholder="Password" type="password" id="npassword" name=password>
         </div>
         
+        <!-- Botón para enviar el formulario -->
         <div class="text-center mt-4 ml-2">
             <button type="submit" class="btn btn-primary">Registrar</button>
         </div>
@@ -148,6 +153,7 @@
 @stop
 
 @section('css')
+    <!-- Estilos CSS personalizados -->
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 

@@ -7,11 +7,13 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Ejecuta las migraciones para crear la tabla 'students'.
      */
     public function up(): void
     {
+        //Creamos una nueva tabla "students" en la base de datos.
         Schema::create('students', function (Blueprint $table) {
+            // Definición de columnas para la tabla 'students'.
             $table->id();
             $table->string("control_number");
             $table->string("student_name", 200);

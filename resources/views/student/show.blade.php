@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Informacion del alumno')
 
 @section('content_header')
     <h1></h1>
@@ -10,8 +10,10 @@
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
+                <!-- Tarjeta de información del alumno -->
                 <div class="card">
                     <div class="card-header">
+                        <!-- Encabezado de la tarjeta con título y botón de regreso -->
                         <div class="float-left">
                             <span class="card-title">Informacion del Alumno</span>
                         </div>
@@ -21,7 +23,7 @@
                     </div>
 
                     <div class="card-body">
-                        
+                        <!-- Campos con la información del alumno -->
                         <div class="form-group">
                             <strong>Numero de control:</strong>
                             {{ $student->control_number }}
@@ -91,9 +93,11 @@
 @stop
 
 @section('css')
+    <!-- Estilos CSS personalizados -->
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
 @section('js')
+    <!-- Script JavaScript para depuración -->
     <script> console.log('Hi!'); </script>
 @stop

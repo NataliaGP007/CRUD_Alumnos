@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Muestra una lista de todos los alumnos.
      */
     public function index()
     {
@@ -20,7 +20,7 @@ class StudentController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Muestra el formulario para crear un nuevo registro de alumno.
      */
     public function create()
     {
@@ -32,11 +32,11 @@ class StudentController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacena en la base de datos los datos proporcionados al crear un nuevo alumno.
      */
     public function store(Request $request)
     {
-        // dd($request);
+        //Validación de datos del formulario
         $data = $request->validate([
             'control_number' => 'required',
             'student_name' => 'required',
@@ -56,12 +56,13 @@ class StudentController extends Controller
             'career_id' => 'required',
         ]);
 
+        // Creación de un nuevo alumno con los datos validados
         Student::create($data);
         return redirect()->route('students.index');
     }
 
     /**
-     * Display the specified resource.
+     * Muestra los detalles de un alumno en particular.
      */
     public function show(Student $student)
     {
@@ -70,7 +71,7 @@ class StudentController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Muestra el formulario para editar un alumno específico.
      */
     public function edit(Student $student)
     {
@@ -82,10 +83,11 @@ class StudentController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza la información de un alumno específico en el almacenamiento.
      */
     public function update(Request $request, Student $student)
     {
+        // Validación de datos del formulario.
         $data = $request->validate([
             'control_number' => 'required',
             'student_name' => 'required',
@@ -104,12 +106,13 @@ class StudentController extends Controller
             'career_id' => 'required',
         ]);
 
+        // Actualización de los datos del alumno con los datos validados.
         $student->update($data);
         return redirect()->route('students.index');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina un alumno específico del almacenamiento.
      */
     public function destroy(Student $student)
     {
